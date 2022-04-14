@@ -1,0 +1,88 @@
+.page {
+    background-color: #000;
+    padding: 200px;
+    height: 60vh;
+    width: 80vw;
+    border: 0;
+}
+
+.img-container {
+    /* display: inline; */
+    float: left;
+    height: 480px;
+    width: 640px;
+}
+
+.img-inner-container {
+    display: inline;
+    height: 480px;
+    width: 640px;
+    padding: 0;
+}
+
+.text-container {
+    position: absolute;
+    left: 1050px;
+    top: 300px;
+    height: 480px;
+    width: 640px;
+    float: left;
+}
+
+.title {
+    color: #ffff;
+    font-size: 3em;
+}
+
+.subtitle {
+    color: #ffff;
+    font-size: 2em;
+}
+
+.download-bar {
+    background-color: black;
+    position: absolute;
+    top: 520px;
+    left: 300px;
+    height: 150px;
+    width: 420px;
+    border: 2px;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(97, 103, 108);
+}
+
+.img-1 {
+    padding: 5px;
+    height: 140px;
+    width: 100px;
+    float: left;
+}
+
+.animation-text {
+    padding-top: 40px;
+    padding-left: 20px;
+    height: 140px;
+    width: 200px;
+    float: left;
+}
+
+.img-2 {
+    height: 60px;
+    width: 60px;
+    float: left;
+    padding-top: 50px;
+}
+
+.text-0 {
+    color: #ffff;
+    width: 640px;
+    font-size: x-large;
+}
+
+.text-1 {
+    font-size: large;
+    width: 640px;
+    color: blue;
+}
