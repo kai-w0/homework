@@ -13,56 +13,28 @@ const render = (ele, tmp) => {
     ele.innerHTML = tmp;
 }
 
-const createDropDown = () => {
-    const keyele = document.getElementById('key');
-    const valele = document.getElementById('val');
-    
-    let keystmp = '';
-    let valstmp = '';
-    Object.keys(state).forEach(key => {
-        keystmp += `<option value="${key}">${key}</option>`;
-        valstmp += `<option value="${key}">${state[key]}</option>`;
-    });
-    render(keyele, keystmp);
-    render(valele, valstmp);
-}
-
 const keyele = document.getElementById('key');
 const valele = document.getElementById('val');
+let selected;
 
-const output1 = () => {
-    let keyCur = keyele.options[keyele.selectedIndex].value;
-    let keystmp = '';
-    let valstmp = '';
-    keystmp += `<option value="${keyCur}">${keyCur}</option>`;
-    valstmp += `<option value="${keyCur}">${state[keyCur]}</option>`;
-    Object.keys(state).forEach(key => {
-        if (key != keyCur){
-            keystmp += `<option value="${key}">${key}</option>`;
-            valstmp += `<option value="${key}">${state[key]}</option>`;
-        }
+const eventListener = (element) => {
+    element.addEventListener('change', (e) => {
+        selected = e.target.value;
+        createDropDown();
     });
-    render(keyele, keystmp);
-    render(valele, valstmp);
 }
 
-const output2 = () => {
-    let valCur = valele.options[valele.selectedIndex].value;
-    let keyCur = valCur.slice(0,1);
+const createDropDown = () => {
     let keystmp = '';
     let valstmp = '';
-    keystmp += `<option value="${keyCur}">${keyCur}</option>`;
-    valstmp += `<option value="${keyCur}">${state[keyCur]}</option>`;
     Object.keys(state).forEach(key => {
-        if (key != keyCur){
-            keystmp += `<option value="${key}">${key}</option>`;
-            valstmp += `<option value="${key}">${state[key]}</option>`;
-        }
+        keystmp += `<option value="${key}" ${selected === key ? 'selected' : ''}>${key}</option>`;
+        valstmp += `<option value="${key}" ${selected === key ? 'selected' : ''}>${state[key]}</option>`;
     });
     render(keyele, keystmp);
     render(valele, valstmp);
 }
 
 createDropDown();
-keyele.addEventListener('change', output1);
-valele.addEventListener('change', output2);
+eventListener(keyele);
+eventListener(valele);
